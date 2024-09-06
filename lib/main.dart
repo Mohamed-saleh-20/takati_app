@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:takati_app/feature/home/Home_screen.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:takati_app/core/service/local_storage.dart';
 import 'package:takati_app/feature/intro/splash_view.dart';
-import 'package:takati_app/feature/upload/upload_view.dart';
 
 
 
-void main() {
+
+Future<void> main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('userBox');
+  AppCaching.init();
   runApp(const MainApp());
 } 
 
