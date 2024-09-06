@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
+import 'package:takati_app/core/function/navigatore.dart';
 import 'package:takati_app/core/utils/font_style.dart';
 import 'package:takati_app/core/widgets/custom_button.dart';
+import 'package:takati_app/feature/home/Task_Page.dart';
 
 class TodayWidget extends StatelessWidget {
   const TodayWidget({
@@ -16,8 +19,7 @@ class TodayWidget extends StatelessWidget {
                   Gap(10),
                   Column( crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Octobar 30,2023",
+                      Text(DateFormat.yMMMMd().format(DateTime.now()),
                         style: getTitleTextStyle(),
                       ),
                       Gap(
@@ -27,7 +29,9 @@ class TodayWidget extends StatelessWidget {
                     ],
                   ),
                   Spacer(),
-                  CustomButton(OnPressed: () {}, text: "+ Add Task",width: 140,height: 50,)
+                  CustomButton(OnPressed: () {
+                    push(context, TaskPage());
+                  }, text: "+ Add Task",width: 140,height: 50,)
                 ],
               );
 
