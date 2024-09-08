@@ -3,9 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:takati_app/core/function/navigatore.dart';
 import 'package:takati_app/core/service/local_storage.dart';
 import 'package:takati_app/core/utils/colors.dart';
 import 'package:takati_app/core/utils/font_style.dart';
+import 'package:takati_app/feature/proflie/user_profile.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -35,11 +37,16 @@ class HomeHeader extends StatelessWidget {
         ),
        Spacer(),
         SizedBox(width: 60,height: 60,
-          child: CircleAvatar(
-            backgroundImage: (AppCaching.getCacheData("image") != null)
-    ? FileImage(File(AppCaching.getCacheData("image")!))
-    : AssetImage('assets/user.png'),
-          
+          child: InkWell(
+            onTap: () {
+             push(context, UserProfile() );
+            },
+            child: CircleAvatar(
+              backgroundImage: (AppCaching.getCacheData("image") != null)
+                ? FileImage(File(AppCaching.getCacheData("image")!))
+                : AssetImage('assets/user.png'),
+            
+            ),
           ),
         )
       ],

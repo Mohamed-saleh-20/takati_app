@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:takati_app/core/service/local_storage.dart';
 import 'package:takati_app/feature/home/Home_screen.dart';
+import 'package:takati_app/feature/home/Task_Page.dart';
 import 'package:takati_app/feature/intro/splash_view.dart';
+import 'package:takati_app/feature/proflie/user_profile.dart';
 
 
 
@@ -21,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView() );
+      home: UserProfile() );
     
   }
 }
